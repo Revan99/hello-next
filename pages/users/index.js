@@ -1,18 +1,15 @@
 import Link from 'next/link'
+import User from '../../components/user'
 
 const UserList = ({ users }) => {
     return (
         <div>
             <h1>UserList</h1>
-            <ul>
+            <ol>
                 {users.map((user) => (
-                    <li key={user.id}>
-                        <Link href={`/user/${user.id}`}>
-                            <a>{user.name}</a>
-                        </Link>
-                    </li>
+                    <User key={user.id} user={user} />
                 ))}
-            </ul>
+            </ol>
         </div>
     )
 }
