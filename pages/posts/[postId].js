@@ -1,4 +1,9 @@
+import { useRouter } from 'next/router'
+
 function Post({ post }) {
+    const router = useRouter()
+
+    if (router.isFallback) return <h2>Loading...</h2>
     return (
         <>
             <h1>
@@ -17,6 +22,11 @@ export async function getStaticProps({ params }) {
     )
     const data = await response.json()
 
+    if (!data.id) {
+        return {
+            notFound: true,
+        }
+    }
     return {
         props: {
             post: data,
@@ -34,7 +44,7 @@ export async function getStaticPaths() {
         },
     }))
     return {
-        paths,
-        fallback: false,
+        paths: paths.slice(0, 10),
+        fallback: true,
     }
 }
