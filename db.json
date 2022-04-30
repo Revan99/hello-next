@@ -40,10 +40,10 @@
         }
     ],
     "dashboard": {
-        "posts": 5,
-        "likes": 100,
-        "followers": 20,
-        "following": 50
+        "posts": 50,
+        "likes": 1100,
+        "followers": 2000,
+        "following": 5000
     },
     "events": [
         {
